@@ -27,14 +27,15 @@ public class IrcMain {
         out = new PrintWriter(socket.getOutputStream(), true);
         in = new Scanner(socket.getInputStream());
 
-          write("NICK ", nick);
-          write("USER", username + " 0 * :" + realName);
-          write("JOIN", join);
+        write("NICK ", nick);
+        write("USER", username + " 0 * :" + realName);
+        write("JOIN", join);
 
-          while (in.hasNext()) {
-              String serverMessage = in.nextLine();
-              System.out.println("<<< " + serverMessage );
-              if (serverMessage.startsWith("PING")) {
+        while (in.hasNext()) {
+            String serverMessage = in.nextLine();
+            System.out.println("<<< " + serverMessage );
+
+            if (serverMessage.startsWith("PING")) {
                   String pingContents = serverMessage.split(" ", 2)[1];
                   write("PONG", pingContents);
               }
