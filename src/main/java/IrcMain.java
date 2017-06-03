@@ -19,7 +19,7 @@ public class IrcMain {
         username = console.nextLine();
         System.out.print("Enter your real name ");
         realName = console.nextLine();
-        System.out.print("Specify channel to join");
+        System.out.print("Specify channel to join ");
         join = console.nextLine();
 
         Socket socket = new Socket("chat.freenode.net", 6667);
